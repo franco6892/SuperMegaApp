@@ -13,13 +13,13 @@ public class Product {
     public Product(int id, String name, BigDecimal price, Integer stock, String category) {
         this.id = id;
         this.name = name;
-       // this.price = price;
-        // Intentar convertir la cadena de precio a BigDecimal
+        //this.price = price;
         try {
-            this.price = new BigDecimal(String.valueOf(price)).setScale(2, RoundingMode.DOWN)/*.stripTrailingZeros()*/;
+            String priceString = String.format("%.2f", price);
+            this.price = new BigDecimal(priceString);
         } catch (NumberFormatException e) {
-            // Si hay un error al convertir la cadena de precio a BigDecimal, asignar un valor por defecto de 0
-            this.price = BigDecimal.ZERO;
+            // Si hay un error al convertir la cadena de precio a BigDecimal, lanzar una excepción
+            throw new IllegalArgumentException("Precio no válido: " + price);
         }
         this.stock = stock;
         this.category = category;
