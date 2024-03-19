@@ -83,6 +83,18 @@ public class ProductsService {
         }
     }
 
+    public List<Product> listAllByCategoryProducts(String category){
+        List<Product> products = new LinkedList<>();
+        List<ProductDTO> productDTOs = productsRepository.findAll();
+        for (ProductDTO productDTO: productDTOs) {
+            if (productDTO.getCategory().equalsIgnoreCase(category)) {
+                Product product = new Product(productDTO.id, productDTO.name, productDTO.price, productDTO.stock, productDTO.category);
+                products.add(product);
+            }
+        }
+        return products;
+    }
+
     private Product convertToProduct(ProductDTO productDTO) {
         Product product = new Product(productDTO.id, productDTO.name, productDTO.price, productDTO.stock, productDTO.category);
         return product;

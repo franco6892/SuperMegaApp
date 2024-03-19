@@ -41,4 +41,9 @@ public class ProductsController {
         return productsService.updateProduct(id, updatedProduct);
     }
 
+    @GetMapping("/category/{category}")
+    public List<Product> listAllProductsOfOneCategory(@PathVariable String category) {
+        return productsService.listAllByCategoryProducts(category);
+    }
+
 }

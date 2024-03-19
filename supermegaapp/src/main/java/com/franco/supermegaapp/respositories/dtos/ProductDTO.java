@@ -16,6 +16,10 @@ public class ProductDTO {
     public Integer stock;
     public String category;
 
+    public String getCategory() {
+        return category;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
