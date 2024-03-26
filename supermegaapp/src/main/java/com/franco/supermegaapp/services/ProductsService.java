@@ -1,9 +1,7 @@
 package com.franco.supermegaapp.services;
 
-import com.franco.supermegaapp.models.Car;
 import com.franco.supermegaapp.models.Product;
 import com.franco.supermegaapp.respositories.ProductsRepository;
-import com.franco.supermegaapp.respositories.dtos.CarDTO;
 import com.franco.supermegaapp.respositories.dtos.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +27,7 @@ public class ProductsService {
         List<Product> products = new LinkedList<>();
         List<ProductDTO> productDTOs = productsRepository.findAll();
         for (ProductDTO productDTO: productDTOs) {
-            Product product = new Product(productDTO.id, productDTO.name, productDTO.price, productDTO.stock, productDTO.category);
+            Product product = new Product(productDTO.product_id, productDTO.name, productDTO.price, productDTO.stock, productDTO.category);
             products.add(product);
         }
         return products;
@@ -88,7 +86,7 @@ public class ProductsService {
         List<ProductDTO> productDTOs = productsRepository.findAll();
         for (ProductDTO productDTO: productDTOs) {
             if (productDTO.getCategory().equalsIgnoreCase(category)) {
-                Product product = new Product(productDTO.id, productDTO.name, productDTO.price, productDTO.stock, productDTO.category);
+                Product product = new Product(productDTO.product_id, productDTO.name, productDTO.price, productDTO.stock, productDTO.category);
                 products.add(product);
             }
         }
@@ -96,7 +94,7 @@ public class ProductsService {
     }
 
     private Product convertToProduct(ProductDTO productDTO) {
-        Product product = new Product(productDTO.id, productDTO.name, productDTO.price, productDTO.stock, productDTO.category);
+        Product product = new Product(productDTO.product_id, productDTO.name, productDTO.price, productDTO.stock, productDTO.category);
         return product;
     }
 }

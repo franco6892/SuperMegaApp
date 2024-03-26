@@ -3,14 +3,13 @@ package com.franco.supermegaapp.respositories.dtos;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class ProductDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    public Integer product_id;
     public String name;
     public BigDecimal price;
     public Integer stock;

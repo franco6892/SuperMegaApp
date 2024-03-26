@@ -1,8 +1,6 @@
 package com.franco.supermegaapp.controllers;
 
-import com.franco.supermegaapp.models.Car;
 import com.franco.supermegaapp.models.Product;
-import com.franco.supermegaapp.services.CarsService;
 import com.franco.supermegaapp.services.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
